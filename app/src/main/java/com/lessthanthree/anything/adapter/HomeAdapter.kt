@@ -16,7 +16,7 @@ class HomeAdapter(private val listIcon: ArrayList<Int>): RecyclerView.Adapter<Ho
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_icon, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_home, parent, false)
         return HomeViewHolder(view)
     }
 
