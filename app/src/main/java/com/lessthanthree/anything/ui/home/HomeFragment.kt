@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lessthanthree.anything.R
+import com.lessthanthree.anything.adapter.HomeAdapter
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +29,9 @@ class HomeFragment : Fragment() {
         rvhome.setHasFixedSize(true)
         rvhome.layoutManager = GridLayoutManager(this.context, 2)
 
-        //tambahin manggil adapter di sini
+        homeViewModel.initListFeatureName(this.context)
+        val homeAdapter = HomeAdapter(homeViewModel.initListFeatureImage(this.context))
+        rvhome.adapter = homeAdapter
 
         return root
     }
