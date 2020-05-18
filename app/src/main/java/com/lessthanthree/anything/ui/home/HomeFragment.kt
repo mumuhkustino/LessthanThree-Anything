@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.lessthanthree.anything.R
 import com.lessthanthree.anything.adapter.HomeAdapter
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var rvhome :RecyclerView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -25,14 +24,16 @@ class HomeFragment : Fragment() {
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        rvhome = root.findViewById(R.id.rvHome)
-        rvhome.setHasFixedSize(true)
-        rvhome.layoutManager = GridLayoutManager(this.context, 2)
-
-        homeViewModel.initListFeatureName(this.context)
-        val homeAdapter = HomeAdapter(homeViewModel.initListFeatureImage(this.context))
-        rvhome.adapter = homeAdapter
-
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        rvHome.setHasFixedSize(true)
+        rvHome.layoutManager = GridLayoutManager(context, 2)
+
+        val homeAdapter = HomeAdapter(homeViewModel.initListFeatureName(context), homeViewModel.initListFeatureImage(context))
+        rvHome.adapter = homeAdapter
     }
 }

@@ -10,13 +10,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lessthanthree.anything.R
 
-class HomeAdapter(private val listIcon: ArrayList<Int>): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+class HomeAdapter(private val listName: ArrayList<String>,
+                  private val listIcon: ArrayList<Int>): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
     inner class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var imgIcon: ImageView = itemView.findViewById(R.id.img_item_icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_home, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_card_view_home, parent, false)
         return HomeViewHolder(view)
     }
 
@@ -33,7 +34,7 @@ class HomeAdapter(private val listIcon: ArrayList<Int>): RecyclerView.Adapter<Ho
             .into(holder.imgIcon)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "clicked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, listName.get(position), Toast.LENGTH_SHORT).show()
         }
     }
 

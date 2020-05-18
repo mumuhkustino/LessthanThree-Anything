@@ -16,7 +16,7 @@ class HomeViewModel : ViewModel() {
 
     private var listName: ArrayList<String> = arrayListOf()
     private var listImage: ArrayList<Int> = arrayListOf()
-    @SuppressLint("Recycle")
+
     fun initListFeatureName(context: Context?): ArrayList<String> {
         val dataString = context?.resources?.getStringArray(R.array.home_feature_name)
         if(dataString != null) {

@@ -12,6 +12,8 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="action_search">Search</string>
+    <string name="image_feature">Image Feature</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>
@@ -29,7 +31,7 @@
         <item>@drawable/ic_notes</item>
         <item>@drawable/ic_stopwatch</item>
         <item>@drawable/ic_reminder</item>
-        <item>@drawable/ic_piggy_bank</item>
+        <item>@drawable/ic_money_manager</item>
         <item>@drawable/ic_count</item>
         <item>@drawable/ic_currency</item>
         <item>@drawable/ic_daily_tasks</item>
