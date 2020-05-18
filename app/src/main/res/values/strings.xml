@@ -12,5 +12,27 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
-    <string name="action_search">Search</string>
+
+    <string-array name="home_feature_name">
+        <item>Calculator</item>
+        <item>Notes</item>
+        <item>Stopwatch</item>
+        <item>Reminder</item>
+        <item>Money Manager</item>
+        <item>Counter</item>
+        <item>Unit Conversion</item>
+        <item>Daily Schedule</item>
+    </string-array>
+
+    <array name="home_feature_icon">
+        <item>@drawable/ic_calculator</item>
+        <item>@drawable/ic_notes</item>
+        <item>@drawable/ic_stopwatch</item>
+        <item>@drawable/ic_reminder</item>
+        <item>@drawable/ic_piggy_bank</item>
+        <item>@drawable/ic_count</item>
+        <item>@drawable/ic_currency</item>
+        <item>@drawable/ic_daily_tasks</item>
+    </array>
+
 </resources>
