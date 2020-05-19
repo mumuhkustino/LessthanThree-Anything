@@ -2,7 +2,6 @@ package com.lessthanthree.anything.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.TypedArray
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,6 +17,7 @@ class HomeViewModel : ViewModel() {
     private var listImage: ArrayList<Int> = arrayListOf()
 
     fun initListFeatureName(context: Context?): ArrayList<String> {
+        listName = arrayListOf()
         val dataString = context?.resources?.getStringArray(R.array.home_feature_name)
         if(dataString != null) {
             listName.addAll(dataString)
@@ -28,6 +28,7 @@ class HomeViewModel : ViewModel() {
 
     @SuppressLint("Recycle")
     fun initListFeatureImage(context: Context?): ArrayList<Int> {
+        listImage = arrayListOf()
         val dataImage = context?.resources?.obtainTypedArray(R.array.home_feature_icon)
         if(dataImage != null) {
             for (i in listName.indices) {

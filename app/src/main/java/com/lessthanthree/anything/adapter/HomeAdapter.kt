@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -34,7 +36,17 @@ class HomeAdapter(private val listName: ArrayList<String>,
             .into(holder.imgIcon)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, listName.get(position), Toast.LENGTH_SHORT).show()
+            val bundle = bundleOf("title" to listName.get(position))
+            val nav = when (position) {
+                0 -> R.id.action_home_to_calculator
+                else -> -1
+            }
+            if (nav != -1) {
+                holder.itemView.findNavController()
+                    .navigate(nav, bundle)
+            } else {
+                Toast.makeText(holder.itemView.context, "Coming Soon", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
