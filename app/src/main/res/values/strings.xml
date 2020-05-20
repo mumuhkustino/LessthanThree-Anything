@@ -22,6 +22,18 @@
     <string name="clear">C</string>
     <string name="delete">DEL</string>
     <string name="equal">=</string>
+    <string name="num_seven">7</string>
+    <string name="num_four">4</string>
+    <string name="num_one">1</string>
+    <string name="num_zero">0</string>
+    <string name="num_eight">8</string>
+    <string name="num_five">5</string>
+    <string name="num_two">2</string>
+    <string name="num_double_zero">00</string>
+    <string name="num_nine">9</string>
+    <string name="num_six">6</string>
+    <string name="num_three">3</string>
+    <string name="point">.</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/calculator_btn_shadow"/>
+    <item
+        android:drawable="@drawable/calculator_btn_equal"
+        android:left="@dimen/calculator_shadow_horizontal"
+        android:right="@dimen/calculator_shadow_horizontal"
+        android:bottom="@dimen/calculator_shadow_bottom"/>
+</layer-list>

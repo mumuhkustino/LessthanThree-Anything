@@ -28,29 +28,50 @@
 
     <style name="BtnStyleYellow" parent="android:Widget.Button">
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:padding">10sp</item>
-        <item name="android:typeface">sans</item>
-        <item name="android:background">@drawable/calculator_btn_operand</item>
-        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_btn_operand_shadow</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="BtnStyleRed" parent="android:Widget.Button">
-        <item name="android:textColor">#FFF</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:padding">10sp</item>
-        <item name="android:typeface">sans</item>
-        <item name="android:background">@drawable/calculator_btn_function</item>
-        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_btn_function_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BtnStyleLightGray" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_btn_base_shadow</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="BtnStyleBlue" parent="android:Widget.Button">
-        <item name="android:textColor">#FFF</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:padding">10sp</item>
-        <item name="android:typeface">sans</item>
-        <item name="android:background">@drawable/calculator_btn_equal</item>
-        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_btn_equal_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextViewStyleLightBlack" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">16sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_tv_result</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextViewStyleLightGray" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:padding">10sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/calculator_btn_base_shadow</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

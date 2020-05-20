@@ -9,6 +9,7 @@
     <color name="colorDarkGray">#C4C4C4</color>
     <color name="colorLightBlack">#333333</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorShadow">#26000000</color>
     <color name="colorYellow">#F2C94C</color>
     <color name="colorLightGreen">#0BFE4F</color>
     <color name="colorRed">#EB5757</color>
