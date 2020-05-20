@@ -1,82 +1,51 @@
 package com.lessthanthree.anything.model
 
+import net.objecthunter.exp4j.ExpressionBuilder
+
 class Calculator {
 
     var result: String? = ""
-    var operator: String? = ""
-    var operandFirst: String? = ""
-    var operandSecond: String? = ""
+    var operation: String? = ""
 
     fun calculate(): String? {
-        var result: String? = ""
+        val text = this.operation
 
-        when(this.operator) {
-            "÷" -> {
-                result = (this.operandSecond?.toDouble()?.let {
-                    this.operandFirst?.toDouble()?.div(
-                        it
-                    )
-                }).toString()
-            }
-            "x" -> {
-                result = (this.operandSecond?.toDouble()?.let {
-                    this.operandFirst?.toDouble()?.times(
-                        it
-                    )
-                }).toString()
-            }
-            "-" -> {
-                result = (this.operandSecond?.toDouble()?.let {
-                    this.operandFirst?.toDouble()?.minus(
-                        it
-                    )
-                }).toString()
-            }
-            "+" -> {
-                result = (this.operandSecond?.toDouble()?.let {
-                    this.operandFirst?.toDouble()?.plus(
-                        it
-                    )
-                }).toString()
+        if (text != null) {
+            if(text.contains("/0")){
+                this.operation = ""
+                return "\u221E"
             }
         }
+        val expression = ExpressionBuilder(text).build()
+        val result =expression.evaluate()
+        val longResult =result.toLong()
 
-        if (result != null && result != "")
-            this.result = result
+        if (result == longResult.toDouble()){
+            this.operation = longResult.toString()
+            this.result = longResult.toString()
+        } else {
+            this.operation = result.toString()
+            this.result = result.toString()
+        }
 
         return this.result
     }
 
-    fun addition() {
-        this.operator = "+"
-    }
-
-    fun subtraction() {
-        this.operator = "-"
-    }
-
-    fun multiply() {
-        this.operator = "x"
-    }
-
-    fun divide() {
-        this.operator = "÷"
-    }
-
     fun clear() {
-        this.result = ""
-        this.operator = ""
-        this.operandFirst = ""
-        this.operandSecond = ""
+        this.operation = ""
     }
 
     fun delete() {
-        if (this.operandSecond != null && this.operandSecond != "")
-            this.operandSecond = this.operandSecond?.dropLast(1)
-        else if (this.operator != null && this.operator != "")
-            this.operator = ""
-        else if (this.operandFirst != null && this.operandFirst != "")
-            this.operandFirst = this.operandFirst?.dropLast(1)
+        if (this.operation != null && this.operation != "")
+            this.operation = this.operation?.dropLast(1)
+    }
+
+    fun createExpression (userInput: String){
+        this.operation += userInput
+    }
+
+    fun getExpression (): String?{
+        return this.operation
     }
 
 }

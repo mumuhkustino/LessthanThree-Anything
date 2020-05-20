@@ -1,6 +1,5 @@
 package com.lessthanthree.anything.ui.calculator
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.lessthanthree.anything.model.Calculator
 
@@ -12,54 +11,44 @@ class CalculatorViewModel : ViewModel() {
         return calculator.calculate()
     }
 
-    fun addition() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
-            calculator.addition()
-    }
-
-    fun subtraction() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
-            calculator.subtraction()
-    }
-
-    fun multiply() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
-            calculator.multiply()
-    }
-
-    fun divide() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
-            calculator.divide()
-    }
-
     fun clear() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
+        if (calculator.operation != null
+            && calculator.operation != ""){
             calculator.clear()
-    }
-
-    fun delete() {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != "")
-            calculator.delete()
-    }
-
-    fun setOperand(value: String?) {
-        if (calculator.operandFirst != null
-            && calculator.operandFirst != ""
-            && calculator.operator != null
-            && calculator.operator != "") {
-                calculator.operandSecond = value
-                Log.d("C", value + " OS " + calculator.operandSecond)
-                Log.d("C", value + " O " + calculator.operator)
-        } else {
-            calculator.operandFirst = value
-            Log.d("C", value + " OF " + calculator.operandFirst)
         }
     }
 
+    fun delete() {
+        if (calculator.operation != null
+            && calculator.operation != "")
+            calculator.delete()
+    }
+
+    fun evaluateExpression (userInput: String){
+        /*IF USER PRESSED +, *, OR / WHEN THERE IS NO EXPRESSION*/
+        val operator = listOf("+", "*", "/")
+        var findOperator = operator.find { it == userInput }
+        if((calculator.operation == null || calculator.operation == "")
+            && findOperator != null){
+            return
+        }
+
+        /*IF USER PRESSED OPERATOR MORE THAN ONCE*/
+        val operator2 = listOf("+", "*", "/", "-", ".")
+        findOperator = operator2.find { it == userInput }
+        if (calculator.operation != null
+            && calculator.operation != ""){
+            val last = calculator.operation?.last().toString()
+            val findLast =operator2.find { it == last }
+            if (findOperator != null && findLast != null){
+                return
+            }
+        }
+
+        calculator.createExpression(userInput)
+    }
+
+    fun getExpression() :String? {
+        return calculator.getExpression()
+    }
 }
