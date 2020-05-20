@@ -34,6 +34,8 @@
     <string name="num_six">6</string>
     <string name="num_three">3</string>
     <string name="point">.</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>
