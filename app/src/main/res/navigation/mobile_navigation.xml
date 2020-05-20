@@ -17,9 +17,6 @@
                 android:name="title"
                 app:argType="string"/>
         </action>
-        <action
-            android:id="@+id/action_home_to_counter"
-            app:destination="@id/nav_counter"/>
 
     </fragment>
 
@@ -28,18 +25,6 @@
         android:name="com.lessthanthree.anything.ui.calculator.CalculatorFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_calculator">
-
-        <argument
-            android:name="title"
-            app:argType="string"/>
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_counter"
-        android:name="com.lessthanthree.anything.ui.counter.CounterFragment"
-        android:label="{title}"
-        tools:layout="@layout/fragment_counter">
 
         <argument
             android:name="title"
