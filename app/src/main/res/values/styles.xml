@@ -74,4 +74,28 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="BtnStyleLightGreen" parent="android:Widget.Button">
+<!--        <item name="android:textColor">@color/colorBlack</item>-->
+<!--        <item name="android:padding">10sp</item>-->
+<!--        <item name="fontFamily">@font/roboto_mono_bold</item>-->
+        <item name="android:background">@drawable/counter_btn_reset</item>
+<!--        <item name="android:textSize">18sp</item>-->
+    </style>
+
+    <style name="TextViewStyleLightPurple" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:padding">10sp</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/counter_tv_result</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="BtnStyleOvalLightGray" parent="android:Widget.Button">
+        <!--        <item name="android:textColor">@color/colorBlack</item>-->
+        <!--        <item name="android:padding">10sp</item>-->
+        <!--        <item name="fontFamily">@font/roboto_mono_bold</item>-->
+        <item name="android:background">@drawable/counter_btn</item>
+        <!--        <item name="android:textSize">18sp</item>-->
+    </style>
+
 </resources>

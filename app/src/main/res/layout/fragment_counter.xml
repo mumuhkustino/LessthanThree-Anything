@@ -9,7 +9,6 @@
 
     <Button
         android:id="@+id/btnReset"
-        style="@style/TextViewStyleLightBlack"
         android:layout_width="32dp"
         android:layout_height="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,7 +16,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.330" />
+        app:layout_constraintVertical_bias="0.330"
+        style="@style/BtnStyleLightGreen"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
             android:gravity="end"
             tools:text="0"
             app:fontFamily="@font/roboto_mono_thin"
-            style="@style/TextViewStyleLightGray"/>
+            style="@style/TextViewStyleLightPurple"/>
 
         <Button
             android:id="@+id/btnPlus"
@@ -49,7 +49,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:text="@string/plus"
-            style="@style/BtnStyleLightGray"/>
+            style="@style/BtnStyleOvalLightGray"/>
 
         <Button
             android:id="@+id/btnMinus"
@@ -57,6 +57,6 @@
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:text="@string/minus"
-            style="@style/BtnStyleLightGray"/>
+            style="@style/BtnStyleOvalLightGray"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
