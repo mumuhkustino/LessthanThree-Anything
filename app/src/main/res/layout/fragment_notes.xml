@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notes.NotesFragment">
+    android:layout_marginStart="64dp"
+    android:layout_marginEnd="64dp"
+    tools:context=".ui.calculator.CalculatorFragment">
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/BtnStyleLightGray">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            style="@style/BtnStyleLightGray">
+            <Button
+                android:id="@+id/btnNew"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="@android:color/transparent"
+                android:text="@string/plus"
+                android:textSize="30sp"
+                android:layout_alignParentStart="true" />
+            <Button
+                android:id="@+id/btnMore"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_more_horiz_black_24dp"/>
+            <Button
+                android:id="@+id/btnColor"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="64dp"
+                android:layout_marginRight="64dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_analytics"/>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="top"
+            android:hint="@string/title"
+            android:inputType="textMultiLine"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:hint="@string/edit_text"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_mono_light"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

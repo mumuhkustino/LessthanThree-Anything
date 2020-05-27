@@ -36,6 +36,8 @@
     <string name="point">.</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="title">Title</string>
+    <string name="edit_text">Edit text</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>
