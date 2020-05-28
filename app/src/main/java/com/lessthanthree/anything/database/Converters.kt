@@ -1,7 +1,7 @@
 package com.lessthanthree.anything.database
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.util.Date
 
 class Converters {
 
@@ -12,7 +12,7 @@ class Converters {
 
     @TypeConverter
     fun dateToTimestamp(date: Date?): Long? {
-        return date?.time?.toLong()
+        return date?.time
     }
 
 }
