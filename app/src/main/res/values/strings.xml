@@ -38,6 +38,8 @@
     <string name="minus">-</string>
     <string name="title">Title</string>
     <string name="edit_text">Edit text</string>
+    <string name="notes_list">Notes List</string>
+    <string name="delete_note">Delete</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>

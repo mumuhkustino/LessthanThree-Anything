@@ -1,20 +1,16 @@
 package com.lessthanthree.anything.ui.notes
 
+import android.graphics.Rect
 import android.os.Build
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.lessthanthree.anything.MainActivity
 import com.lessthanthree.anything.R
-import com.lessthanthree.anything.model.Note
 import kotlinx.android.synthetic.main.fragment_notes.*
-import java.sql.Date
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-import java.util.*
+
 
 class NotesFragment : Fragment() {
 
@@ -39,5 +35,11 @@ class NotesFragment : Fragment() {
         btnNew.setOnClickListener() {
             // TODO: save note, new note page
         }
-     }
+
+        btnMore.setOnClickListener() {
+            notesMenu.visibility = View.GONE
+            notesMoreMenu.visibility = View.VISIBLE
+        }
+
+    }
 }

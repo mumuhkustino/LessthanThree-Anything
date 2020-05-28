@@ -19,35 +19,71 @@
         style="@style/BtnStyleLightGray">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            style="@style/BtnStyleLightGray">
-            <Button
-                android:id="@+id/btnNew"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:background="@android:color/transparent"
-                android:text="@string/plus"
-                android:textSize="30sp"
-                android:layout_alignParentStart="true" />
-            <Button
-                android:id="@+id/btnMore"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/ic_more_horiz_black_24dp"/>
-            <Button
-                android:id="@+id/btnColor"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/ic_analytics"/>
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/notesMenu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                style="@style/BtnStyleLightGray"
+                android:visibility="visible">
+                <Button
+                    android:id="@+id/btnNew"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@android:color/transparent"
+                    android:text="@string/plus"
+                    android:textSize="30sp"
+                    android:layout_alignParentStart="true" />
+                <Button
+                    android:id="@+id/btnMore"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_more_horiz_black_24dp"/>
+                <Button
+                    android:id="@+id/btnColor"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="64dp"
+                    android:layout_marginRight="64dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_analytics"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/notesMoreMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                style="@style/BtnStyleLightGray"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/btnNotesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:text="@string/notes_list"
+                    android:textSize="16sp"/>
+                <Button
+                    android:id="@+id/btnDeleteNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/roboto_mono_regular"
+                    android:text="@string/delete_note"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
         </RelativeLayout>
 
         <EditText
@@ -62,7 +98,7 @@
             android:gravity="top"
             android:hint="@string/title"
             android:inputType="textMultiLine"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/editNote"
