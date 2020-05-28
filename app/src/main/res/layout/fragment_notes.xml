@@ -86,6 +86,12 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
         <EditText
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
