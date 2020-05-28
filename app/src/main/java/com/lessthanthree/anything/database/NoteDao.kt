@@ -16,7 +16,7 @@ interface NoteDao {
     @Query("SELECT * FROM note_table ORDER BY date DESC")
     fun getLatestNotes(): LiveData<List<Note>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     fun insert(note: Note)
 
     @Update
