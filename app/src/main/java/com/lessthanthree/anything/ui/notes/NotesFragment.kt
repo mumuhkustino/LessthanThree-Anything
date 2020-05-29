@@ -7,9 +7,13 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.lessthanthree.anything.R
 import com.lessthanthree.anything.model.Note
 import kotlinx.android.synthetic.main.fragment_notes.*
@@ -99,8 +103,21 @@ class NotesFragment : Fragment() {
         btnMore.setOnClickListener() {
             notesMenu.visibility = View.GONE
             notesMoreMenu.visibility = View.VISIBLE
+            coverView.visibility = View.VISIBLE
         }
 
+        coverView.setOnClickListener() {
+            if(notesMoreMenu.isShown) {
+                notesMenu.visibility = View.VISIBLE
+                notesMoreMenu.visibility = View.GONE
+            }
+            coverView.visibility = View.GONE
+        }
+
+        btnNotesList.setOnClickListener() {
+            val bundle = bundleOf("title" to getString(R.string.notes_list))
+            findNavController().navigate(R.id.action_nav_notes_to_nav_notes_list, bundle)
+        }
     }
 
     fun blank() {
