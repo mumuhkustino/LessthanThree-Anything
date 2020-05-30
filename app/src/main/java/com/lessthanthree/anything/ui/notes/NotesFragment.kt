@@ -1,23 +1,21 @@
 package com.lessthanthree.anything.ui.notes
 
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.*
-import androidx.annotation.RequiresApi
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.Navigation
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.lessthanthree.anything.R
 import com.lessthanthree.anything.model.Note
 import kotlinx.android.synthetic.main.fragment_notes.*
-import java.util.Date
+import java.util.*
 
 
 class NotesFragment : Fragment() {
@@ -35,78 +33,76 @@ class NotesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_notes, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NotesViewModel::class.java)
+        viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
 
-        var idNote = 0
         var note: Note? = null
         var edit = false
 
-        viewModel.allNotes.observe(viewLifecycleOwner, object : Observer<List<Note>> {
-            override fun onChanged(t: List<Note>?) {
+        viewModel.allNotes.observe(viewLifecycleOwner,
+            Observer { t ->
                 if (t != null && t.size != 0) {
-                    Log.d("SIZE: ", t.size.toString())
-                    idNote = t.size - 1
-                    note = t.get(idNote)
-                    tvId.text = idNote.toString()
-                    Log.d("", "" + idNote)
-                    Log.d("FIRST: ", note.toString())
+                    note = t.get(t.size - 1)
                     for (i in t.indices) {
-                        Log.d("T: ", i.toString() + " " + t.get(i).toString())
+                        Log.d("", "Note " + i.toString() + " " + t[i].toString())
                     }
                 } else {
-                    Log.d("SECOND: ", note.toString())
-                    viewModel.insert(note = Note("", "", Date()))
+                    note = Note("", "", Date())
+                    viewModel.insert(note!!)
                 }
                 if (!edit && note != null) {
-                    editTitle.text = Editable.Factory.getInstance().newEditable(note?.title)
-                    editNote.text = Editable.Factory.getInstance().newEditable(note?.description)
+                    editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
+                    editNote.text = Editable.Factory.getInstance().newEditable(note!!.description)
                     edit = true
                 }
-            }
-        })
+            })
 
         editTitle.addTextChangedListener(object : TextWatcher {
 
-            override fun afterTextChanged(s: Editable) {}
+            override fun afterTextChanged(s: Editable) {
+            }
 
             override fun beforeTextChanged(s: CharSequence, start: Int,count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int,before: Int, count: Int) {
-                note?.title = s.toString()
-                note?.date = Date()
-                Log.d("TITLE: ", note.toString())
-                note?.let { viewModel.update(it) }
+                if (note?.title != s.toString()) {
+                    note?.title = s.toString()
+                    note?.date = Date()
+                    note?.let { viewModel.update(it) }
+                }
             }
         })
 
         editNote.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
+            override fun afterTextChanged(s: Editable) {
+            }
 
             override fun beforeTextChanged(s: CharSequence, start: Int,count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int,before: Int, count: Int) {
-                note?.description = s.toString()
-                note?.date = Date()
-                Log.d("DESC: ", note.toString())
-                note?.let { viewModel.update(it) }
+                if (note?.description != s.toString()) {
+                    note?.description = s.toString()
+                    note?.date = Date()
+                    note?.let { viewModel.update(it) }
+                }
             }
         })
 
-        btnNew.setOnClickListener() {
-            viewModel.insert(note = Note("", "", Date()))
-            blank()
+        btnNew.setOnClickListener {
+            note = Note("", "", Date())
+            editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
+            editNote.text = Editable.Factory.getInstance().newEditable(note!!.description)
+            viewModel.insert(note!!)
         }
 
-        btnMore.setOnClickListener() {
+        btnMore.setOnClickListener {
             notesMenu.visibility = View.GONE
             notesMoreMenu.visibility = View.VISIBLE
             coverView.visibility = View.VISIBLE
         }
 
-        coverView.setOnClickListener() {
+        coverView.setOnClickListener {
             if(notesMoreMenu.isShown) {
                 notesMenu.visibility = View.VISIBLE
                 notesMoreMenu.visibility = View.GONE
@@ -114,15 +110,18 @@ class NotesFragment : Fragment() {
             coverView.visibility = View.GONE
         }
 
-        btnNotesList.setOnClickListener() {
+        btnNotesList.setOnClickListener {
             val bundle = bundleOf("title" to getString(R.string.notes_list))
             findNavController().navigate(R.id.action_nav_notes_to_nav_notes_list, bundle)
         }
+
+        btnDeleteNote.setOnClickListener {
+            note?.let { it1 -> viewModel.delete(it1) }
+            edit = false
+            notesMenu.visibility = View.VISIBLE
+            notesMoreMenu.visibility = View.GONE
+            coverView.visibility = View.GONE
+        }
     }
 
-    fun blank() {
-        editTitle.requestFocus()
-        editTitle.text = Editable.Factory.getInstance().newEditable("")
-        editNote.text = Editable.Factory.getInstance().newEditable("")
-    }
 }
