@@ -3,7 +3,6 @@ package com.lessthanthree.anything.ui.notes
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,9 +42,9 @@ class NotesFragment : Fragment() {
             Observer { t ->
                 if (t != null && t.size != 0) {
                     note = t.get(t.size - 1)
-                    for (i in t.indices) {
-                        Log.d("", "Note " + i.toString() + " " + t[i].toString())
-                    }
+//                    for (i in t.indices) {
+//                        Log.d("", "Note " + i.toString() + " " + t[i].toString())
+//                    }
                 } else {
                     note = Note( "", Date())
                     viewModel.insert(note!!)
@@ -103,10 +102,5 @@ class NotesFragment : Fragment() {
             notesMoreMenu.visibility = View.GONE
             coverView.visibility = View.GONE
         }
-    }
-
-    fun getTitle() {
-
-
     }
 }
