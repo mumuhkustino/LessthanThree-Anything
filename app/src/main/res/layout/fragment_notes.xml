@@ -99,28 +99,13 @@
         </RelativeLayout>
 
         <EditText
-            android:id="@+id/editTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="4dp"
-            android:autofillHints="@string/title"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/roboto_mono_light"
-            android:gravity="top"
-            android:hint="@string/title"
-            android:inputType="textMultiLine"
-            android:textSize="18sp" />
-
-        <EditText
             android:id="@+id/editNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="8dp"
             android:autofillHints="@string/edit_text"
             android:background="@android:color/transparent"
             android:fontFamily="@font/roboto_mono_light"

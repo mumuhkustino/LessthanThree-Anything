@@ -91,7 +91,7 @@ class NotesFragment : Fragment() {
 
         btnNew.setOnClickListener {
             note = Note("", "", Date())
-            editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
+//            editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
             editNote.text = Editable.Factory.getInstance().newEditable(note!!.description)
             viewModel.insert(note!!)
         }
@@ -124,4 +124,8 @@ class NotesFragment : Fragment() {
         }
     }
 
+    fun getTitle() {
+
+
+    }
 }
