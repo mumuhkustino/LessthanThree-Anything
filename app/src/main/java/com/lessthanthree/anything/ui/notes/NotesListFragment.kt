@@ -29,7 +29,7 @@ class NotesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val notesListAdapter = NotesListAdapter()
+        val notesListAdapter = NotesListAdapter(context)
 
         rvNotes.setHasFixedSize(true)
         rvNotes.layoutManager = LinearLayoutManager(context)
