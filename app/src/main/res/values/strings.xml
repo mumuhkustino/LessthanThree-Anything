@@ -32,7 +32,7 @@
         <item>@drawable/ic_stopwatch</item>
         <item>@drawable/ic_reminder</item>
         <item>@drawable/ic_money_manager</item>
-        <item>@drawable/ic_count</item>
+        <item>@drawable/ic_method_draw_image</item>
         <item>@drawable/ic_currency</item>
         <item>@drawable/ic_daily_tasks</item>
     </array>
