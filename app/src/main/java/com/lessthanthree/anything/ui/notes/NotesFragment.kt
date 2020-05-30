@@ -17,7 +17,6 @@ import com.lessthanthree.anything.model.Note
 import kotlinx.android.synthetic.main.fragment_notes.*
 import java.util.*
 
-
 class NotesFragment : Fragment() {
 
     companion object {
@@ -48,31 +47,14 @@ class NotesFragment : Fragment() {
                         Log.d("", "Note " + i.toString() + " " + t[i].toString())
                     }
                 } else {
-                    note = Note("", "", Date())
+                    note = Note( "", Date())
                     viewModel.insert(note!!)
                 }
                 if (!edit && note != null) {
-                    editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
                     editNote.text = Editable.Factory.getInstance().newEditable(note!!.description)
                     edit = true
                 }
             })
-
-        editTitle.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable) {
-            }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int,count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence, start: Int,before: Int, count: Int) {
-                if (note?.title != s.toString()) {
-                    note?.title = s.toString()
-                    note?.date = Date()
-                    note?.let { viewModel.update(it) }
-                }
-            }
-        })
 
         editNote.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -90,8 +72,7 @@ class NotesFragment : Fragment() {
         })
 
         btnNew.setOnClickListener {
-            note = Note("", "", Date())
-//            editTitle.text = Editable.Factory.getInstance().newEditable(note!!.title)
+            note = Note("", Date())
             editNote.text = Editable.Factory.getInstance().newEditable(note!!.description)
             viewModel.insert(note!!)
         }
