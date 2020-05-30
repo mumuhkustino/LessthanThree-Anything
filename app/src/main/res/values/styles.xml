@@ -74,4 +74,14 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="AlertDialogNotes" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:background">@color/colorLightGray</item>
+        <item name="android:dialogCornerRadius">15dp</item>
+    </style>
+
 </resources>

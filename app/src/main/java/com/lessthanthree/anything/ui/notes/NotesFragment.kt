@@ -1,11 +1,15 @@
 package com.lessthanthree.anything.ui.notes
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.app.AlertDialog
+import android.view.ContextThemeWrapper
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -96,11 +100,34 @@ class NotesFragment : Fragment() {
         }
 
         btnDeleteNote.setOnClickListener {
-            note?.let { it1 -> viewModel.delete(it1) }
-            edit = false
-            notesMenu.visibility = View.VISIBLE
-            notesMoreMenu.visibility = View.GONE
-            coverView.visibility = View.GONE
+
+                val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.AlertDialogNotes))
+                val positiveButtonClick = { dialog: DialogInterface, which: Int ->
+                    Toast.makeText(context,
+                        android.R.string.yes, Toast.LENGTH_SHORT).show()
+
+                }
+//                val negativeButtonClick = { dialog: DialogInterface, which: Int ->
+//                    Toast.makeText(context,
+//                        android.R.string.no, Toast.LENGTH_SHORT).show()
+//                }
+
+                val neutralButtonClick = { dialog: DialogInterface, which: Int ->
+                    Toast.makeText(context,android.R.string.yes, Toast.LENGTH_SHORT).show()
+                    note?.let { it1 -> viewModel.delete(it1) }
+                    edit = false
+                    notesMenu.visibility = View.VISIBLE
+                    notesMoreMenu.visibility = View.GONE
+                    coverView.visibility = View.GONE
+                }
+
+                with(builder)
+                {
+                    setMessage("Are You Sure")
+                    setNeutralButton("Yes", DialogInterface.OnClickListener(function = neutralButtonClick))
+                    setPositiveButton("No", DialogInterface.OnClickListener(function = positiveButtonClick))
+                    show()
+                }
         }
     }
 }
