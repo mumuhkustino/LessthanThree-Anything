@@ -84,4 +84,25 @@
         <item name="android:dialogCornerRadius">15dp</item>
     </style>
 
+    <style name="NoteStyleWhite" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/note_white_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="NoteStyleLightBlue" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/note_blue_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="NoteStyleYellow" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/note_yellow_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

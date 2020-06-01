@@ -39,6 +39,7 @@
     <string name="edit_text">Edit text</string>
     <string name="notes_list">Notes List</string>
     <string name="delete_note">Delete</string>
+    <string name="color_mode">colorMode</string>
 
     <string-array name="home_feature_name">
         <item>Calculator</item>

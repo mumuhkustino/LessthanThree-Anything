@@ -1,20 +1,23 @@
 package com.lessthanthree.anything.ui.notes
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.app.AlertDialog
-import android.view.ContextThemeWrapper
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.airbnb.paris.Paris
 import com.lessthanthree.anything.R
 import com.lessthanthree.anything.model.Note
 import kotlinx.android.synthetic.main.fragment_notes.*
@@ -27,6 +30,8 @@ class NotesFragment : Fragment() {
     }
 
     private lateinit var viewModel: NotesViewModel
+    private var colorMode: Int = 0
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,11 +46,31 @@ class NotesFragment : Fragment() {
 
         var note: Note? = null
         var edit = false
+        sharedPreferences = requireContext().getSharedPreferences(getString(R.string.color_mode), Context.MODE_PRIVATE)
+
+        colorMode = sharedPreferences.getInt(getString(R.string.color_mode), 0)
+        when (colorMode) {
+            1 -> {
+                Paris.style(mainLayout).apply(R.style.NoteStyleLightBlue)
+                Paris.style(notesMenu).apply(R.style.NoteStyleLightBlue)
+                Paris.style(notesMoreMenu).apply(R.style.NoteStyleLightBlue)
+            }
+            2 -> {
+                Paris.style(mainLayout).apply(R.style.NoteStyleYellow)
+                Paris.style(notesMenu).apply(R.style.NoteStyleYellow)
+                Paris.style(notesMoreMenu).apply(R.style.NoteStyleYellow)
+            }
+            0 -> {
+                Paris.style(mainLayout).apply(R.style.NoteStyleWhite)
+                Paris.style(notesMenu).apply(R.style.NoteStyleWhite)
+                Paris.style(notesMoreMenu).apply(R.style.NoteStyleWhite)
+            }
+        }
 
         viewModel.allNotes.observe(viewLifecycleOwner,
             Observer { t ->
                 if (t != null && t.size != 0) {
-                    note = t.get(t.size - 1)
+                    note = t[t.size - 1]
 //                    for (i in t.indices) {
 //                        Log.d("", "Note " + i.toString() + " " + t[i].toString())
 //                    }
@@ -104,7 +129,7 @@ class NotesFragment : Fragment() {
                 val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.AlertDialogNotes))
                 val positiveButtonClick = { dialog: DialogInterface, which: Int ->
                     Toast.makeText(context,
-                        android.R.string.yes, Toast.LENGTH_SHORT).show()
+                        android.R.string.no, Toast.LENGTH_SHORT).show()
 
                 }
 //                val negativeButtonClick = { dialog: DialogInterface, which: Int ->
@@ -129,5 +154,32 @@ class NotesFragment : Fragment() {
                     show()
                 }
         }
+
+        btnColor.setOnClickListener {
+            when (colorMode) {
+                0 -> {
+                    Paris.style(mainLayout).apply(R.style.NoteStyleLightBlue)
+                    Paris.style(notesMenu).apply(R.style.NoteStyleLightBlue)
+                    Paris.style(notesMoreMenu).apply(R.style.NoteStyleLightBlue)
+                    colorMode = 1
+                    sharedPreferences.edit().putInt(getString(R.string.color_mode), colorMode).apply()
+                }
+                1 -> {
+                    Paris.style(mainLayout).apply(R.style.NoteStyleYellow)
+                    Paris.style(notesMenu).apply(R.style.NoteStyleYellow)
+                    Paris.style(notesMoreMenu).apply(R.style.NoteStyleYellow)
+                    colorMode = 2
+                    sharedPreferences.edit().putInt(getString(R.string.color_mode), colorMode).apply()
+                }
+                2 -> {
+                    Paris.style(mainLayout).apply(R.style.NoteStyleWhite)
+                    Paris.style(notesMenu).apply(R.style.NoteStyleWhite)
+                    Paris.style(notesMoreMenu).apply(R.style.NoteStyleWhite)
+                    colorMode = 0
+                    sharedPreferences.edit().putInt(getString(R.string.color_mode), colorMode).apply()
+                }
+            }
+        }
+
     }
 }

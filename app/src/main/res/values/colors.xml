@@ -8,9 +8,10 @@
     <color name="colorBlack">#000000</color>
     <color name="colorShadow">#26000000</color>
     <color name="colorYellow">#F2C94C</color>
+    <color name="colorLightYellow">#FFEE58</color>
     <color name="colorLightGreen">#0BFE4F</color>
     <color name="colorRed">#EB5757</color>
     <color name="colorLightPurple">#4A2FED</color>
-    <color name="colorBlue">#2D9CDB</color>
-    <color name="colorLightBlue">#40A6FF</color>
+    <color name="colorBlue">#992D9CDB</color>
+    <color name="colorLightBlue">#81D4FA</color>
 </resources>
