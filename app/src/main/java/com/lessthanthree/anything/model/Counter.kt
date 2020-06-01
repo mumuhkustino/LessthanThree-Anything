@@ -9,6 +9,7 @@ class Counter {
     }
 
     fun decrease(): Int {
+        if (num == 0) return num
         num -= 1
         return num
     }
