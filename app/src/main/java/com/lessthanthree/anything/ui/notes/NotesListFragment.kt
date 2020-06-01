@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.lessthanthree.anything.R
 import com.lessthanthree.anything.adapter.NotesListAdapter
@@ -44,6 +45,12 @@ class NotesListFragment : Fragment() {
                     Log.d("fragment : ", "" + list[i].toString())
                 }
             })
+
+        notesListAdapter.setOnItemClickCallback(object : NotesListAdapter.OnItemClickCallback {
+            override fun onItemClicked(position : Int) {
+                notesListAdapter.changeHeight(position, rvNotes)
+            }
+        })
 
     }
 
