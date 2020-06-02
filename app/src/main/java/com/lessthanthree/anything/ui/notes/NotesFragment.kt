@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -70,7 +71,12 @@ class NotesFragment : Fragment() {
         viewModel.allNotes.observe(viewLifecycleOwner,
             Observer { t ->
                 if (t != null && t.size != 0) {
-                    note = t[t.size - 1]
+                    if (arguments?.getParcelable<Note>("note") != null){
+                        note = arguments?.getParcelable("note")
+                        Log.d("notesfragment","Bundle " + note.toString())
+                    } else {
+                        note = t[t.size - 1]
+                    }
 //                    for (i in t.indices) {
 //                        Log.d("", "Note " + i.toString() + " " + t[i].toString())
 //                    }

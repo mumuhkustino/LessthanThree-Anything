@@ -74,7 +74,17 @@
             app:argType="string"/>
         <action
             android:id="@+id/action_nav_notes_list_to_nav_notes"
-            app:destination="@+id/nav_notes"/>
+            app:destination="@+id/nav_notes">
+
+            <argument
+                android:name="title"
+                app:argType="string"/>
+
+            <argument
+                android:name="note"
+                app:argType="com.lessthanthree.anything.model.Note"/>
+
+        </action>
     </fragment>
 
     <fragment

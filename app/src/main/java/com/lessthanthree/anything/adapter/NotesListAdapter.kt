@@ -77,6 +77,7 @@ class NotesListAdapter(var context: Context?) : RecyclerView.Adapter<NotesListAd
             viewPos = pos
         } else {
             val bundle = bundleOf("title" to "Notes")
+            bundle.putParcelable("note", listNotes[pos])
             val nav = R.id.action_nav_notes_list_to_nav_notes
             holder.itemView.findNavController().navigate(nav, bundle)
         }
