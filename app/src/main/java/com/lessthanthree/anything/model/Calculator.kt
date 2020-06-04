@@ -4,7 +4,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 
 class Calculator {
 
-    var result: String? = ""
+    private var result: String? = ""
     var operation: String? = ""
 
     fun calculate(): String? {

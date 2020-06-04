@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.lessthanthree.anything.R
-import com.lessthanthree.anything.model.Counter
-import kotlinx.android.synthetic.main.fragment_calculator.*
 import kotlinx.android.synthetic.main.fragment_counter.*
 
 class CounterFragment : Fragment() {
@@ -27,7 +24,7 @@ class CounterFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        counterViewModel = ViewModelProviders.of(this).get(CounterViewModel::class.java)
+        counterViewModel = ViewModelProvider(this)[CounterViewModel::class.java]
 
         btnPlus.setOnClickListener {
             textViewCount.text = counterViewModel.increase().toString()
@@ -41,7 +38,7 @@ class CounterFragment : Fragment() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
-        menu.findItem(R.id.action_search).setVisible(false)
+        menu.findItem(R.id.action_search).isVisible = false
         super.onPrepareOptionsMenu(menu)
     }
 }

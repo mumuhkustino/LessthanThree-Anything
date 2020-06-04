@@ -18,9 +18,11 @@
                 app:argType="string"/>
         </action>
         <action
+            android:id="@+id/action_nav_home_to_nav_notes"
+            app:destination="@id/nav_notes" />
+        <action
             android:id="@+id/action_home_to_counter"
             app:destination="@id/nav_counter"/>
-
     </fragment>
 
     <fragment
@@ -45,6 +47,44 @@
             android:name="title"
             app:argType="string"/>
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="com.lessthanthree.anything.ui.notes.NotesFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_notes">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_notes_to_nav_notes_list"
+            app:destination="@id/nav_notes_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notes_list"
+        android:name="com.lessthanthree.anything.ui.notes.NotesListFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_notes_list">
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_nav_notes_list_to_nav_notes"
+            app:destination="@+id/nav_notes">
+
+            <argument
+                android:name="title"
+                app:argType="string"/>
+
+            <argument
+                android:name="note"
+                app:argType="com.lessthanthree.anything.model.Note"/>
+
+        </action>
     </fragment>
 
     <fragment

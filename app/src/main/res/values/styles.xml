@@ -74,28 +74,35 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="BtnStyleLightGreen" parent="android:Widget.Button">
-<!--        <item name="android:textColor">@color/colorBlack</item>-->
-        <item name="android:padding">10sp</item>
-<!--        <item name="fontFamily">@font/roboto_mono_bold</item>-->
-        <item name="android:background">@drawable/counter_btn_reset</item>
-<!--        <item name="android:textSize">18sp</item>-->
+    <style name="AlertDialogNotes" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:headerDividersEnabled">true</item>
+        <item name="android:background">@color/colorLightGray</item>
+        <item name="android:dialogCornerRadius">15dp</item>
     </style>
 
-    <style name="TextViewStyleLightPurple" parent="android:Widget.Button">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:padding">10sp</item>
+    <style name="NoteStyleWhite" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="fontFamily">@font/roboto_mono_bold</item>
-        <item name="android:background">@drawable/counter_tv_result</item>
+        <item name="android:background">@drawable/note_white_shadow</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="BtnStyleOvalLightGray" parent="android:Widget.Button">
-        <!--        <item name="android:textColor">@color/colorBlack</item>-->
-        <!--        <item name="android:padding">10sp</item>-->
-        <!--        <item name="fontFamily">@font/roboto_mono_bold</item>-->
-        <item name="android:background">@drawable/counter_btn</item>
-        <!--        <item name="android:textSize">18sp</item>-->
+    <style name="NoteStyleLightBlue" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/note_blue_shadow</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="NoteStyleYellow" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_mono_bold</item>
+        <item name="android:background">@drawable/note_yellow_shadow</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

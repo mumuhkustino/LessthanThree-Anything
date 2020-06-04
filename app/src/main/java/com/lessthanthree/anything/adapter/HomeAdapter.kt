@@ -36,9 +36,10 @@ class HomeAdapter(private val listName: ArrayList<String>,
             .into(holder.imgIcon)
 
         holder.itemView.setOnClickListener {
-            val bundle = bundleOf("title" to listName.get(position))
+            val bundle = bundleOf("title" to listName[position])
             val nav = when (position) {
                 0 -> R.id.action_home_to_calculator
+                1 -> R.id.action_nav_home_to_nav_notes
                 5 -> R.id.action_home_to_counter
                 else -> -1
             }
