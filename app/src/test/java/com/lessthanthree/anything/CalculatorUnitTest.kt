@@ -1,9 +1,6 @@
 package com.lessthanthree.anything
 
 import com.lessthanthree.anything.model.Calculator
-import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.Before
 
 /**
